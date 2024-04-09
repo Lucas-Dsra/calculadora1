@@ -1,9 +1,11 @@
+import { ButtonContainer  } from "./syles";
 
-const Button = () => {
+
+const Button = ({label, onClick}) => {
   return (
-    <div className="App">
-      Olá
-    </div>
+    <ButtonContainer onClick={onClick} type="button">
+      {label}
+    </ButtonContainer>
   );
 }
 

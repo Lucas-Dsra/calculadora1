@@ -2,10 +2,10 @@ import { InputContainer } from "./syles";
 
 
 
-const Input = () => {
+const Input = ({value}) => {
     return (
       <InputContainer>
-        <input></input>
+        <input disabled value={value}></input>
       </InputContainer>
     );
   }
