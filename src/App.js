@@ -6,11 +6,26 @@ import { useState } from 'react';
 const App = () =>{
 
   const [currentNumber, setCurrentNumber] = useState(0);
-
+  const [firsNumber, setFirsNumber ] = useState ('0');
   const handleAddNumber = (num) => {
-    setCurrentNumber(prev => `${num}${prev}`)
+    setCurrentNumber(prev => `${num}${prev === '0' ? '':prev}`)
 
   };
+  const handleonClear = () =>{
+      setCurrentNumber('0')
+  };
+
+  const handleSumNumbers = ()=> {
+    if (firsNumber === '0') {
+        setFirsNumber(String(currentNumber));
+        handleonClear();
+    }else{
+      const sum = Number (firsNumber) + Number (currentNumber)
+      setCurrentNumber(String(sum))
+    }
+  };
+
+
   return (
     <Container>
       <Content>
@@ -19,7 +34,7 @@ const App = () =>{
               <Button label="%" onClick={() => handleAddNumber('%')}></Button>
               <Button label="÷" onClick={() => handleAddNumber('÷')}></Button>
               <Button label="x" onClick={() => handleAddNumber('x')}></Button>
-              <Button label="c" onClick={() => handleAddNumber('c')}></Button>
+              <Button label="c" onClick={handleonClear}></Button>
             </Row>
             <Row>
               <Button label="7" onClick={() => handleAddNumber('7')}></Button>
@@ -31,7 +46,7 @@ const App = () =>{
               <Button label="4" onClick={() => handleAddNumber('4')}></Button>
               <Button label="5" onClick={() => handleAddNumber('5')}></Button>
               <Button label="6" onClick={() => handleAddNumber('6')}></Button>
-              <Button label="+" onClick={() => handleAddNumber('+')}></Button>
+              <Button label="+" onClick={handleSumNumbers}></Button>
             </Row>
             <Row>
               <Button label="1" onClick={() => handleAddNumber('1')}></Button>
