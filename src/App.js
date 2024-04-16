@@ -12,8 +12,6 @@ const App = () =>{
   };
   const[operation, setOperation] = useState('');
   
-
-
   const handleonClear = () =>{
       setCurrentNumber('0')
       setFirsNumber('0')
@@ -58,7 +56,6 @@ const App = () =>{
         setOperation('')
     }
   };
-
 
   const handDivNumbers = ()=> {
     if (firsNumber === '0') {
